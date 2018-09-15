@@ -58,8 +58,8 @@ print(5)
     *   Any consistent indentation is legal, but almost everyone uses four spaces.
 
 ~~~
-for number in [2, 3, 5]:
-print(number)
+for place in ['Asia', 'Vietnam', 'Saigon']:
+print(place)
 ~~~
 {: .python}
 ~~~
@@ -70,13 +70,13 @@ IndentationError: expected an indented block
 *   Indentation is always meaningful in Python.
 
 ~~~
-firstName="Jon"
-  lastName="Smith"
+first_name="Jon"
+  last_name="Smith"
 ~~~
 {: .python}
 ~~~
   File "<ipython-input-7-f65f2962bf9c>", line 2
-    lastName="Smith"
+    last_name="Smith"
     ^
 IndentationError: unexpected indent
 ~~~
@@ -88,14 +88,14 @@ IndentationError: unexpected indent
 ## A `for` loop is made up of a collection, a loop variable, and a body.
 
 ~~~
-for number in [2, 3, 5]:
-    print(number)
+for place in ['Asia', 'Vietnam', 'Saigon']:
+    print(place)
 ~~~
 {: .python}
 
-*   The collection, `[2, 3, 5]`, is what the loop is being run on.
-*   The body, `print(number)`, specifies what to do for each value in the collection.
-*   The loop variable, `number`, is what changes for each *iteration* of the loop.
+*   The collection, `['Asia', 'Vietnam', 'Saigon']`, is what the loop is being run on.
+*   The body, `print(place)`, specifies what to do for each value in the collection.
+*   The loop variable, `place`, is what changes for each *iteration* of the loop.
     *   The "current thing".
 
 ## Loop variable names follow the normal variable name conventions.
@@ -106,7 +106,7 @@ for number in [2, 3, 5]:
         * Use a new variable name to avoid overwriting a data collection you need to keep for later
     *   Often be used in the course of the loop
         * So give them a meaningful name you'll understand as the body code in your loop grows.
-        * Example: `for single_letter in ['A', 'B', 'C', 'D']:` instead of `for asdf in ['A', 'B', 'C', 'D']:`
+        * Example: `for single_letter in ['A', 'B', 'C', 'D']:` instead of `for blah in ['A', 'B', 'C', 'D']:`
 ~~~
 for kitten in [2, 3, 5]:
     print(kitten)
@@ -142,13 +142,11 @@ for p in primes:
     *   Exactly the legal indices of a list or character string of length N
 
 ~~~
-print('a range is not a list: range(0, 3)')
 for number in range(0,3):
     print(number)
 ~~~
 {: .python}
 ~~~
-a range is not a list: range(0, 3)
 0
 1
 2
@@ -200,44 +198,6 @@ print(total)
     *   Assign that to `total`, replacing the current value.
 *   We have to add `number + 1` because `range` produces 0..9, not 1..10.
 
-> ## Classifying Errors
->
-> Is an indentation error a syntax error or a runtime error?
->
-> > ## Solution
-> >
-> >It is a syntax error. The problem has to do with the placement of the code, not its logic.
-> 
->{: .solution}{: .challenge}
-
-
-> ## Tracing Execution
->
-> Create a table showing the numbers of the lines that are executed when this program runs,
-> and the values of the variables after each line is executed.
->
-> ~~~
-> total = 0
-> for char in "tin":
->     total = total + 1
-> ~~~
-> {: .python}
-{: .challenge}
-
-> ## Reversing a String
->
-> Fill in the blanks in the program below so that it prints "nit"
-> (the reverse of the original character string "tin").
->
-> ~~~
-> original = "tin"
-> result = ____
-> for char in original:
->     result = ____
-> print(result)
-> ~~~
-> {: .python}
-{: .challenge}
 
 > ## Practice Accumulating
 >
@@ -278,6 +238,48 @@ print(total)
 > ~~~
 > {: .python}
 {: .challenge}
+
+
+
+> ## Classifying Errors
+>
+> Is an indentation error a syntax error or a runtime error?
+>
+> > ## Solution
+> >
+> >It is a syntax error. The problem has to do with the placement of the code, not its logic.
+> 
+>{: .solution}{: .challenge}
+
+
+> ## Tracing Execution
+>
+> Create a table showing the numbers of the lines that are executed when this program runs,
+> and the values of the variables after each line is executed.
+>
+> ~~~
+> total = 0
+> for char in "tin":
+>     total = total + 1
+> ~~~
+> {: .python}
+{: .challenge}
+
+> ## Reversing a String
+>
+> Fill in the blanks in the program below so that it prints "nit"
+> (the reverse of the original character string "tin").
+>
+> ~~~
+> original = "tin"
+> result = ____
+> for char in original:
+>     result = ____
+> print(result)
+> ~~~
+> {: .python}
+{: .challenge}
+
 
 > ## Cumulative Sum
 >

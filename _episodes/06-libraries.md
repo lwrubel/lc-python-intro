@@ -146,10 +146,15 @@ Capitalise This Sentence Again Please.
 >
 > 1. What function from the `os` library can you use to determine the current 
 >    working directory?
+> 2. What function from the `os` library will list the files in a directory? 
 >
 > > ## Solution
 > > 1. Using `help(os)` we see that we've got `os.getcwd()` which returns
 > >    a string representing the current working directory.
+> > 2. Using `help(os)` we also can see that `os.listdir(path=None))` returns 
+> >    a list containing the names of the files in the directory. The function
+> >    takes a parameter that is the directory to look into. If it's not provided, 
+> >    it looks at the current directory (.) .
 > {: .solution}
 {: .challenge}
 

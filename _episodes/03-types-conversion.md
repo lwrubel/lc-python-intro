@@ -46,7 +46,7 @@ print(type(52))
 {: .output}
 
 ~~~
-title = 'Biochemistry'
+title = "Georgia O'Keeffe"
 print(type(title))
 ~~~
 {: .python}
@@ -87,12 +87,12 @@ TypeError: unsupported operand type(s) for -: 'str' and 'str'
 *   "Adding" character strings concatenates them.
 
 ~~~
-full_name = 'Ahmed' + ' ' + 'Walsh'
+full_name = 'Henriette' + ' ' + 'Avram'
 print(full_name)
 ~~~
 {: .python}
 ~~~
-Ahmed Walsh
+Henriette Avram
 ~~~
 {: .output}
 
@@ -119,7 +119,7 @@ print(len(full_name))
 ~~~
 {: .python}
 ~~~
-11
+15
 ~~~
 {: .output}
 
@@ -144,7 +144,7 @@ TypeError: object of type 'int' has no len()
 *   Cannot add numbers and strings.
 
 ~~~
-print(1 + 'A')
+print(1 + '2')
 ~~~
 {: .python}
 ~~~
@@ -230,27 +230,6 @@ first is 2 and second is 5
 > {: .solution}
 {: .challenge}
 
-> ## Automatic Type Conversion
->
-> What type of value is 3.25 + 4?
->
-> > ## Solution
-> >
-> > It is a float:
-> > integers are automatically converted to floats as necessary.
-> >
-> > ~~~
-> > result = 3.25 + 4
-> > print(result, 'is', type(result))
-> > ~~~
-> > {: .python}
-> > ~~~
-> > 7.25 is <class 'float'>
-> > ~~~
-> > {: .output}
-> {: .solution}
-{: .challenge}
-
 > ## Choose a Type
 >
 > What type of value (integer, floating point number, or character string)
@@ -272,6 +251,30 @@ first is 2 and second is 5
 > > 6. Float  
 > {: .solution}
 {: .challenge}
+
+
+> ## Automatic Type Conversion
+>
+> What type of value is 3.25 + 4?
+>
+> > ## Solution
+> >
+> > It is a float:
+> > integers are automatically converted to floats as necessary.
+> >
+> > ~~~
+> > result = 3.25 + 4
+> > print(result, 'is', type(result))
+> > ~~~
+> > {: .python}
+> > ~~~
+> > 7.25 is <class 'float'>
+> > ~~~
+> > {: .output}
+> {: .solution}
+{: .challenge}
+
+
 
 > ## Division Types
 > There are three different types of division:

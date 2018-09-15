@@ -188,32 +188,6 @@ print(asdf_90, 'is', flabadab, 'years old')
 *   Use meaningful variable names to help other people understand what the program does.
 *   The most important "other person" is your future self.
 
-> ## Swapping Values
->
-> Draw a table showing the values of the variables in this program
-> after each statement is executed.
-> In simple terms, what do the last three lines of this program do?
->
-> ~~~
-> x = 1.0
-> y = 3.0
-> swap = x
-> x = y
-> y = swap
-> ~~~
-> {: .python}
-> > ## Solution
-> >
-> > ~~~
-> > swap = x  #  x->1.0 y->3.0 swap->1.0
-> > x = y     #  x->3.0 y->3.0 swap->1.0
-> > y = swap  #  x->3.0 y->1.0 swap->1.0
-> > ~~~
-> > These three lines exchange the values in `x` and `y` using the `swap`
-> > variable for temporary storage. This is a fairly common programming idiom.
->{: .solution}
-{: .challenge}
-
 > ## Predicting Values
 >
 > What is the final value of `position` in the program below?
@@ -242,6 +216,65 @@ print(asdf_90, 'is', flabadab, 'years old')
 > > The last assignment to position was "left"
 >{: .solution}
 {: .challenge}
+
+> ## Slicing
+>
+> What does the following program print?
+>
+> ~~~
+> library_name = 'Library of Congress'
+> print('library_name[1:3] is:', library_name[1:3])
+> ~~~
+> {: .python}
+>
+> 1.  What does `thing[low:high]` do?
+> 2.  What does `thing[low:]` (without a value after the colon) do?
+> 3.  What does `thing[:high]` (without a value before the colon) do?
+> 4.  What does `thing[:]` (just a colon) do?
+> 5.  What does `thing[number:negative-number]` do?
+>
+> > ## Solution
+> > ~~~
+> > library_name[1:3] is: oc
+> > ~~~
+> > {: .output}
+> > 1.  It will slice the string, starting at the `low` index and ending an element before the `high` index
+> > 2.  It will slice the string, starting at the `low` index and stopping at the end of the string
+> > 3.  It will slice the string, starting at the beginning on the string, and ending an element before the `high` index
+> > 4.  It will print the entire string
+> > 5.  It will slice the string, starting the `number` index, and ending a distance of the absolute value of `negative-number` elements from the end of the string
+> {: .solution}
+{: .challenge}
+
+
+
+> ## Swapping Values
+>
+> Draw a table showing the values of the variables in this program
+> after each statement is executed.
+> In simple terms, what do the last three lines of this program do?
+>
+> ~~~
+> x = 1.0
+> y = 3.0
+> swap = x
+> x = y
+> y = swap
+> ~~~
+> {: .python}
+> > ## Solution
+> >
+> > ~~~
+> > swap = x  #  x->1.0 y->3.0 swap->1.0
+> > x = y     #  x->3.0 y->3.0 swap->1.0
+> > y = swap  #  x->3.0 y->1.0 swap->1.0
+> > ~~~
+> > These three lines exchange the values in `x` and `y` using the `swap`
+> > variable for temporary storage. This is a fairly common programming idiom.
+>{: .solution}
+{: .challenge}
+
+
 
 > ## Can you slice integers?
 >
@@ -282,31 +315,4 @@ print(asdf_90, 'is', flabadab, 'years old')
 > {: .solution}
 {: .challenge}
 
-> ## Slicing
->
-> What does the following program print?
->
-> ~~~
-> library_name = 'Library of Congress'
-> print('library_name[1:3] is:', library_name[1:3])
-> ~~~
-> {: .python}
->
-> 1.  What does `thing[low:high]` do?
-> 2.  What does `thing[low:]` (without a value after the colon) do?
-> 3.  What does `thing[:high]` (without a value before the colon) do?
-> 4.  What does `thing[:]` (just a colon) do?
-> 5.  What does `thing[number:negative-number]` do?
->
-> > ## Solution
-> > ~~~
-> > library_name[1:3] is: oc
-> > ~~~
-> > {: .output}
-> > 1.  It will slice the string, starting at the `low` index and ending an element before the `high` index
-> > 2.  It will slice the string, starting at the `low` index and stopping at the end of the string
-> > 3.  It will slice the string, starting at the beginning on the string, and ending an element before the `high` index
-> > 4.  It will print the entire string
-> > 5.  It will slice the string, starting the `number` index, and ending a distance of the absolute value of `negative-number` elements from the end of the string
-> {: .solution}
-{: .challenge}
+
