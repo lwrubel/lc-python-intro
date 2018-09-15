@@ -28,8 +28,8 @@ keypoints:
     and a name in quotation marks to a variable `first_name`.
 
 ~~~
-age = 42
-first_name = 'Ahmed'
+building = 'Jefferson'
+age = 121
 ~~~
 {: .python}
 
@@ -49,11 +49,11 @@ first_name = 'Ahmed'
 *   The values passed to the function are called 'arguments'
 
 ~~~
-print(first_name, 'is', age, 'years old')
+print(building, 'is', age, 'years old')
 ~~~
 {: .python}
 ~~~
-Ahmed is 42 years old
+Jefferson is 121 years old
 ~~~
 {: .output}
 
@@ -67,16 +67,16 @@ Ahmed is 42 years old
     *   Unlike some languages, which "guess" a default value.
 
 ~~~
-print(eye_color)
+print(num_floors)
 ~~~
 {: .python}
 ~~~
 ---------------------------------------------------------------------------
 NameError                                 Traceback (most recent call last)
 <ipython-input-1-c1fbb4e96102> in <module>()
-----> 1 print(eye_color)
+----> 1 print(num_floors)
 
-NameError: name 'eye_color' is not defined
+NameError: name 'num_floors' is not defined
 ~~~
 {: .error}
 
@@ -103,7 +103,7 @@ print('Age in three years:', age)
 ~~~
 {: .python}
 ~~~
-Age in three years: 45
+Age in three years: 124
 ~~~
 {: .output}
 
@@ -119,12 +119,12 @@ Age in three years: 45
     position.
 
 ~~~
-element = 'helium'
-print(element[0])
+call_num = 'N6537.039 A3 1990'
+print(call_num[0])
 ~~~
 {: .python}
 ~~~
-h
+N
 ~~~
 {: .output}
 
@@ -144,23 +144,22 @@ h
     the slice is a copy of part of the original string.
 
 ~~~
-element = 'sodium'
-print(element[0:3])
+print(call_num[0:4])
 ~~~
 {: .python}
 ~~~
-sod
+N6537
 ~~~
 {: .output}
 
 ## Use the built-in function `len` to find the length of a string.
 
 ~~~
-print(len('helium'))
+print(len('Georgia'))
 ~~~
 {: .python}
 ~~~
-6
+7
 ~~~
 {: .output}
 
@@ -180,9 +179,9 @@ print(len('helium'))
     (alphanumeric characters and the underscore).
 
 ~~~
-flabadab = 42
-ewr_422_yY = 'Ahmed'
-print(ewr_422_yY, 'is', flabadab, 'years old')
+flabadab = 38
+asdf_90 = 'Madison'
+print(asdf_90, 'is', flabadab, 'years old')
 ~~~
 {: .python}
 
@@ -288,7 +287,7 @@ print(ewr_422_yY, 'is', flabadab, 'years old')
 > What does the following program print?
 >
 > ~~~
-> library_name = 'social sciences'
+> library_name = 'Library of Congress'
 > print('library_name[1:3] is:', library_name[1:3])
 > ~~~
 > {: .python}
