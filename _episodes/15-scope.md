@@ -22,79 +22,44 @@ keypoints:
 *   The part of a program in which a variable is visible is called its *scope*.
 
 ~~~
-pressure = 103.9
+access_url = 'http://memegenerator.net/'
 
-def adjust(t):
-    temperature = t * 1.43 / pressure
-    return temperature
+def extract_domain(uri):
+    domain = uri[7:-1]
+    return domain
 ~~~
 {: .python}
 
-*   `pressure` is a *global variable*.
+*   `access_url` is a *global variable*.
     *   Defined outside any particular function.
     *   Visible everywhere.
-*   `t` and `temperature` are *local variables* in `adjust`.
+*   `uri` and `domain` are *local variables* in `extract_domain`.
     *   Defined in the function.
     *   Not visible in the main program.
     *   Remember: a function parameter is a variable
         that is automatically assigned a value when the function is called.
 
 ~~~
-print('adjusted:', adjust(0.9))
-print('temperature after call:', temperature)
+print('domain is:', extract_domain('http://metafilter.com/'))
+print('url after call:', domain)
 ~~~
 {: .python}
 ~~~
-adjusted: 0.01238691049085659
+domain is: metafilter.com
 ~~~
 {: .output}
 ~~~
-Traceback (most recent call last):
-  File "/Users/swcarpentry/foo.py", line 8, in <module>
-    print('temperature after call:', temperature)
-NameError: name 'temperature' is not defined
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+<ipython-input-22-9860e4547781> in <module>()
+      1 print('domain is:', extract_domain('http://metafilter.com/'))
+----> 2 print('url after call:', domain)
+      3 
+
+NameError: name 'domain' is not defined
 ~~~
 {: .error}
 
-> ## Local and Global Variable Use
->
-> Trace the values of all variables in this program as it is executed.
-> (Use '---' as the value of variables before and after they exist.)
->
-> ~~~
-> limit = 100
->
-> def clip(value):
->     return min(max(0.0, value), limit)
->
-> value = -22.5
-> print(clip(value))
-> ~~~
-> {: .python}
-> > ## Solution
-> > ~~~
-> > # limit = ---
-> > # value = ---
-> > 
-> > limit = 100   
-> > 
-> > def clip(value):  
-> >   return min(max(0.0, value), limit)
-> > 
-> > # limit = 100
-> > # value = ---
-> > 
-> > value = -22.5    # value = -22.5, limit = 100
-> > 
-> > print(clip(value))   # result is 0.0
-> > 
-> > # value = -22.5
-> > # limit = 100
-> > ~~~
-> > {: .python}
-> >
-> {: .solution}
-{: .challenge}
 
 > ## Identifying Syntax Errors
 >
@@ -145,6 +110,47 @@ IndentationError: unexpected indent
 > > {: .python}
 > {: .solution}
 {: .challenge}
+
+> ## Local and Global Variable Use
+>
+> Trace the values of all variables in this program as it is executed.
+> (Use '---' as the value of variables before and after they exist.)
+>
+> ~~~
+> limit = 100
+>
+> def clip(value):
+>     return min(max(0.0, value), limit)
+>
+> value = -22.5
+> print(clip(value))
+> ~~~
+> {: .python}
+> > ## Solution
+> > ~~~
+> > # limit = ---
+> > # value = ---
+> > 
+> > limit = 100   
+> > 
+> > def clip(value):  
+> >   return min(max(0.0, value), limit)
+> > 
+> > # limit = 100
+> > # value = ---
+> > 
+> > value = -22.5    # value = -22.5, limit = 100
+> > 
+> > print(clip(value))   # result is 0.0
+> > 
+> > # value = -22.5
+> > # limit = 100
+> > ~~~
+> > {: .python}
+> >
+> {: .solution}
+{: .challenge}
+
 
 > ## Reading Error Messages
 >

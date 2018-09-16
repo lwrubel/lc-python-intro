@@ -138,16 +138,16 @@ result of call is: None
 > What does the following program print?
 >
 > ~~~
-> def report(pressure):
->     print('pressure is', pressure)
+> def report(title):
+>     print('title is', title)
 >
-> report(22.5)
+> report('Swing Time')
 > ~~~
 > {: .python}
 > >
 > > ## Solution
 > > ~~~
-> > pressure is 22.5
+> > title is Swing Time
 > > ~~~
 > > {: .output}
 > {: .solution}
@@ -180,6 +180,31 @@ result of call is: None
 > {: .solution}
 {: .challenge}
 
+> ## Find the First
+>
+> Fill in the blanks to create a function that takes a list of numbers as an argument
+> and returns the first negative value in the list.
+> What does your function do if the list is empty?
+>
+> ~~~
+> def first_negative(values):
+>     for v in ____:
+>         if ____:
+>             return ____
+> ~~~
+> {: .python}
+> > ## Solution
+> > ~~~
+> > def first_negative(values):
+> >     for v in values:
+> >         if v < 0:
+> >             return v
+> > ~~~
+> > {: .python}
+> {: .solution}
+{: .challenge}
+
+
 > ## Encapsulation
 >
 > Fill in the blanks to create a function that takes a single filename as an argument,
@@ -207,29 +232,6 @@ result of call is: None
 > {: .solution}
 {: .challenge}
 
-> ## Find the First
->
-> Fill in the blanks to create a function that takes a list of numbers as an argument
-> and returns the first negative value in the list.
-> What does your function do if the list is empty?
->
-> ~~~
-> def first_negative(values):
->     for v in ____:
->         if ____:
->             return ____
-> ~~~
-> {: .python}
-> > ## Solution
-> > ~~~
-> > def first_negative(values):
-> >     for v in values:
-> >         if v < 0:
-> >             return v
-> > ~~~
-> > {: .python}
-> {: .solution}
-{: .challenge}
 
 > ## Calling by Name
 >

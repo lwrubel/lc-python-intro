@@ -24,17 +24,17 @@ keypoints:
     *   Body containing one or more statements is indented (usually by 4 spaces)
 
 ~~~
-mass = 3.54
-if mass > 3.0:
-    print(mass, 'is large')
+filesize = 520
+if filesize > 500:
+    print(filesize, 'is large')
 
-mass = 2.07
-if mass > 3.0:
-    print (mass, 'is large')
+filesize = 34
+if filesize > 500:
+    print (filesize, 'is large')
 ~~~
 {: .python}
 ~~~
-3.54 is large
+520 is large
 ~~~
 {: .output}
 
@@ -44,15 +44,15 @@ if mass > 3.0:
 *   But useful when we have a collection to process.
 
 ~~~
-masses = [3.54, 2.07, 9.22, 1.86, 1.71]
-for m in masses:
-    if m > 3.0:
-        print(m, 'is large')
+filesizes = [34, 800, 230, 1200, 11.5]
+for f in filesizes:
+    if f > 500:
+        print(f, 'is large')
 ~~~
 {: .python}
 ~~~
-3.54 is large
-9.22 is large
+800 is large
+1200 is large
 ~~~
 {: .output}
 
@@ -62,20 +62,20 @@ for m in masses:
 *   Allows us to specify an alternative to execute when the `if` *branch* isn't taken.
 
 ~~~
-masses = [3.54, 2.07, 9.22, 1.86, 1.71]
-for m in masses:
-    if m > 3.0:
-        print(m, 'is large')
+filesizes = [34, 800, 230, 1200, 11.5]
+for f in filesizes:
+    if f > 500:
+        print(f, 'is large')
     else:
-        print(m, 'is small')
+        print(f, 'is small')
 ~~~
 {: .python}
 ~~~
-3.54 is large
-2.07 is small
-9.22 is large
-1.86 is small
-1.71 is small
+34 is small
+800 is large
+230 is small
+1200 is large
+11.5 is small
 ~~~
 {: .output}
 
@@ -87,22 +87,23 @@ for m in masses:
 *   Must come before the `else` (which is the "catch all").
 
 ~~~
-masses = [3.54, 2.07, 9.22, 1.86, 1.71]
-for m in masses:
-    if m > 9.0:
-        print(m, 'is HUGE')
-    elif m > 3.0:
-        print(m, 'is large')
+filesizes = [34, 800, 230, 1200, 11.5]
+for f in filesizes:
+    if f > 1000:
+        print(f, 'is huge')
+    elif f > 500:
+        print(f, 'is large')
     else:
-        print(m, 'is small')
+        print(f, 'is small')
+
 ~~~
 {: .python}
 ~~~
-3.54 is large
-2.07 is small
-9.22 is HUGE
-1.86 is small
-1.71 is small
+34 is small
+800 is large
+230 is small
+1200 is huge
+11.5 is small
 ~~~
 {: .output}
 
@@ -214,17 +215,17 @@ final velocity: 30.0
 > above, suppose you have
 >
 > ~~~
-> mass     = [ 3.54,  2.07,  9.22,  1.86,  1.71]
-> velocity = [10.00, 20.00, 30.00, 25.00, 20.00]
+> num_pages = [120,  50,  452,  98,  850]
+> height = [26, 28, 45, 15, 35]
 >
 > i = 0
 > for i in range(5):
->     if mass[i] > 5 and velocity[i] > 20:
->         print("Fast heavy object.  Duck!")
->     elif mass[i] > 2 and mass[i] <= 5 and velocity[i] <= 20:
->         print("Normal traffic")
->     elif mass[i] <= 2 and velocity <= 20:
->         print("Slow light object.  Ignore it")
+>     if num_pages[i] > 300 and height[i] > 30:
+>         print("Thick heavy book!")
+>     elif num_pages[i] > 100 and num_pages[i] <= 200 and height[i] <= 30:
+>         print("Typical size.")
+>     elif num_pages[i] <= 100 and height <= 30:
+>         print("Light object.")
 >     else:
 >         print("Whoa!  Something is up with the data.  Check it")
 > ~~~
@@ -235,15 +236,15 @@ final velocity: 30.0
 > when mixing `and` and `or` in the same condition.  That is, instead of:
 >
 > ~~~
-> if mass[i] <= 2 or mass[i] >= 5 and velocity[i] > 20:
+> if num_pages[i] <= 100 or num_pages[i] >= 200 and height[i] > 30:
 > ~~~
 > {: .python}
 >
 > write one of these:
 >
 > ~~~
-> if (mass[i] <= 2 or mass[i] >= 5) and velocity[i] > 20:
-> if mass[i] <= 2 or (mass[i] >= 5 and velocity[i] > 20):
+> if (num_pages[i] <= 100 or num_pages[i] >= 200) and height[i] > 30:
+> if num_pages[i] <= 100 or (num_pages[i] >= 200 and height[i] > 30):
 > ~~~
 > {: .python}
 >
@@ -255,12 +256,12 @@ final velocity: 30.0
 > What does this program print?
 >
 > ~~~
-> pressure = 71.9
-> if pressure > 50.0:
->     pressure = 25.0
-> elif pressure <= 50.0:
->     pressure = 0.0
-> print(pressure)
+> filesize = 71
+> if filesize > 50.0:
+>     filesize = 25.0
+> elif filesize <= 50.0:
+>     filesize = 0.0
+> print(filesize)
 > ~~~
 > {: .python}
 {: .challenge}
@@ -289,20 +290,6 @@ final velocity: 30.0
 > {: .output}
 {: .challenge}
 
-> ## Processing Small Files
->
-> Modify this program so that it only processes files with fewer than 50 records.
->
-> ~~~
-> import glob
-> import pandas
-> for filename in glob.glob('data/*.csv'):
->     contents = pandas.read_csv(filename)
->     ____:
->         print(filename, len(contents))
-> ~~~
-> {: .python}
-{: .challenge}
 
 > ## Initializing
 >
@@ -322,8 +309,30 @@ final velocity: 30.0
 > ~~~
 > {: .python}
 >
-> What are the advantages and disadvantages of using this method
-> to find the range of the data?
+> > ## Solution
+> > ~~~
+> > values = [3, 5, 10, 0, 43]
+> > smallest, largest = None, None
+> >
+> > for v in values:
+> >    if smallest is None and largest is None:
+> >         smallest, largest = v, v
+> >     else:
+> >         smallest = min(smallest, v)
+> >         largest = max(largest, v)
+> >     
+> > print(smallest, largest)
+> > ~~~
+> > {: .python}
+> > ~~~
+> > 0 43
+> > ~~~
+> > {: output}
+> > 
+> > What are the advantages and disadvantages of using this method
+> > to find the range of the data?
+> > 
+> {: /solution}
 {: .challenge}
 
 > ## Using Functions With Conditionals in Pandas
