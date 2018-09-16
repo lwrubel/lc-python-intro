@@ -264,6 +264,13 @@ final velocity: 30.0
 > print(filesize)
 > ~~~
 > {: .python}
+> > ## Solution
+> > ~~~
+> > 25.0
+> > ~~~
+> > {: .output}
+> >
+> {: .solution}
 {: .challenge}
 
 > ## Trimming Values
@@ -284,10 +291,12 @@ final velocity: 30.0
 > ~~~
 > {: .python}
 >
-> ~~~
-> [0, 1, 1, 1, 0, 1]
-> ~~~
-> {: .output}
+> > ## Solution
+> > ~~~
+> > [0, 1, 1, 1, 0, 1]
+> > ~~~
+> > {: .output}
+> {: .solution}
 {: .challenge}
 
 
@@ -324,6 +333,7 @@ final velocity: 30.0
 > > print(smallest, largest)
 > > ~~~
 > > {: .python}
+> >
 > > ~~~
 > > 0 43
 > > ~~~
