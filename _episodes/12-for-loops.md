@@ -240,18 +240,6 @@ print(total)
 {: .challenge}
 
 
-> ## Classifying Errors
->
-> Is an indentation error a syntax error or a runtime error?
->
-> > ## Solution
-> >
-> > It is a syntax error. The problem has to do with the placement of the code, not its logic.
-> >
-> {: .solution}
-{: .challenge}
-
-
 > ## Tracing Execution
 >
 > Create a table showing the numbers of the lines that are executed when this program runs,
@@ -267,8 +255,8 @@ print(total)
 
 > ## Reversing a String
 >
-> Fill in the blanks in the program below so that it prints "nit"
-> (the reverse of the original character string "tin").
+> Fill in the blanks in the program below so that it prints "col"
+> (the reverse of the original character string "loc").
 >
 > ~~~
 > original = "loc"
@@ -317,6 +305,18 @@ print(total)
 > > {: .output}
 > {: .solution}
 {: .challenge}
+
+> ## Classifying Errors
+>
+> Is an indentation error a syntax error or a runtime error?
+>
+> > ## Solution
+> >
+> > It is a syntax error. The problem has to do with the placement of the code, not its logic.
+> >
+> {: .solution}
+{: .challenge}
+
 
 > ## Identifying Item Errors
 >
