@@ -240,16 +240,16 @@ print(total)
 {: .challenge}
 
 
-
 > ## Classifying Errors
 >
 > Is an indentation error a syntax error or a runtime error?
 >
 > > ## Solution
 > >
-> >It is a syntax error. The problem has to do with the placement of the code, not its logic.
-> 
->{: .solution}{: .challenge}
+> > It is a syntax error. The problem has to do with the placement of the code, not its logic.
+> >
+> {: .solution}
+{: .challenge}
 
 
 > ## Tracing Execution
@@ -259,7 +259,7 @@ print(total)
 >
 > ~~~
 > total = 0
-> for char in "tin":
+> for char in "loc":
 >     total = total + 1
 > ~~~
 > {: .python}
@@ -271,7 +271,7 @@ print(total)
 > (the reverse of the original character string "tin").
 >
 > ~~~
-> original = "tin"
+> original = "loc"
 > result = ____
 > for char in original:
 >     result = ____
@@ -280,23 +280,6 @@ print(total)
 > {: .python}
 {: .challenge}
 
-
-> ## Cumulative Sum
->
-> Reorder and properly indent the lines of code below
-> so that they print an array with the cumulative sum of data.
-> The result should be `[1, 3, 5, 10]`.
->
-> ~~~
-> cumulative += [sum]
-> for number in data:
-> cumulative = []
-> sum += number
-> print(cumulative)
-> data = [1,2,2,5]
-> ~~~
-> {: .python}
-{: .challenge}
 
 > ## Identifying Variable Name Errors
 >
@@ -319,6 +302,20 @@ print(total)
 > print(message)
 > ~~~
 > {: .python}
+>
+> > ## Solution
+> > ~~~
+> > message = ""
+> > for number in range(10):
+> > # use a if the number is a multiple of 3, otherwise use b
+> >     if (number % 3) == 0:
+> >         message = message + "a"
+> >     else:
+> >         message = message + "b"
+> > print(message)
+> > ~~~
+> > {: .output}
+> {: .solution}
 {: .challenge}
 
 > ## Identifying Item Errors
