@@ -25,7 +25,7 @@ keypoints:
 *   In Python the `=` symbol assigns the value on the right to the name on the left.
 *   The variable is created when a value is assigned to it.
 *   Here, Python assigns an age to a variable `age`
-    and a name in quotation marks to a variable `first_name`.
+    and a name in quotation marks to a variable `building`.
 
 ~~~
 building = 'Jefferson'
@@ -95,7 +95,7 @@ NameError: name 'num_floors' is not defined
 ## Variables can be used in calculations.
 
 *   We can use variables in calculations just as if they were values.
-    *   Remember, we assigned 42 to `age` a few lines ago.
+    *   Remember, we assigned 121 to `age` a few lines ago.
 
 ~~~
 age = age + 3
