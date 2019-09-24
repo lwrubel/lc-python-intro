@@ -128,11 +128,11 @@ The ASCII letters are abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
 ~~~
 import string as s
 
-print(s.capwords('capitalise this sentence again please.'))
+print(s.capwords('capitalise this sentence again.'))
 ~~~
 {: .python}
 ~~~
-Capitalise This Sentence Again Please.
+Capitalise This Sentence Again.
 ~~~
 {: .output}
 
@@ -157,6 +157,8 @@ Capitalise This Sentence Again Please.
 > >    it looks at the current directory (.) .
 > {: .solution}
 {: .challenge}
+
+**EXERCISE: Go to slides.**
 
 > ## Locating the Right Module
 >
@@ -200,141 +202,6 @@ Capitalise This Sentence Again Please.
 > {: .solution}
 {: .challenge}
 
-> ## When Is Help Available?
->
-> When a colleague of yours types `help(os)`,
-> Python reports an error:
->
-> ~~~
-> NameError: name 'os' is not defined
-> ~~~
-> {: .error}
->
-> What has your colleague forgotten to do?
->
-> > ## Solution
-> >
-> > Importing the os module (`import os`)
-> {: .solution}
-{: .challenge}
-
-> ## Importing With Aliases
->
-> 1. Fill in the blanks so that the program below prints `0123456789`.
-> 2. Rewrite the program so that it uses `import` *without* `as`.
-> 3. Which form do you find easier to read?
->
-> ~~~
-> import string as s
-> numbers = ____.digits
-> print(____)
-> ~~~
-> {: .python}
->
-> > ## Solution
-> >
-> > ~~~
-> > import string as s
-> > numbers = s.digits
-> > print(numbers)
-> > ~~~
-> > {: .python}
-> >
-> > can be written as
-> >
-> > ~~~
-> > import string
-> > numbers = string.digits
-> > print(numbers)
-> > ~~~
-> > {: .python}
-> >
-> > Since you just wrote the code and are familiar with it, you might actually
-> > find the first version easier to read. But when trying to read a huge piece
-> > of code written by someone else, or when getting back to your own huge piece
-> > of code after several months, non-abbreviated names are often easier, expect
-> > where there are clear abbreviation conventions.
-> {: .solution}
-{: .challenge}
-
-> ## There Are Many Ways To Import Libraries!
->
-> Match the following print statements with the appropriate library calls
->
-> Library calls:
-> ~~~
-> A) from string import digits
-> B) import string
-> C) import string as s
-> ~~~
-> {: .python}
->
-> Print commands:
-> ~~~
-> 1. print(list(s.digits))
-> 2. print(list(digits))
-> 3. print(string.ascii_uppercase)
-> ~~~
-> {: .python}
-> >
-> > ## Solution
-> > A2) Importing `digits` from `string` provides the `digits` methods
-> > B3) Importing `string` provides methods such as `ascii_uppercase`, but
-> >     requires the `string.` syntax.
-> > C1) Importing `string` with the alias `s` allows `s.digits`
-> {: .solution}
-{: .challenge}
-
-> ## Importing Specific Items
->
-> 1. Fill in the blanks so that the program below prints `90.0`.
-> 2. Do you find this version easier to read than preceding ones?
-> 3. Why *wouldn't* programmers always use this form of `import`?
->
-> ~~~
-> ____ math import ____, ____
-> angle = degrees(pi / 2)
-> print(angle)
-> ~~~
-> {: .python}
->
-> > ## Solution
-> >
-> > ~~~
-> > from math import degrees, pi
-> > angle = degrees(pi / 2)
-> > print(angle)
-> > ~~~
-> > {: .python}
-> >
-> > Most likely you find this version easier to read since it's less dense.
-> > The main reason not to use this form of import is to avoid name clashes.
-> > For instance, you wouldn't import `degrees` this way if you also wanted to
-> > use the name `degrees` for a variable or function of your own. Or if you
-> > were to also import a function named `degrees` from another library.
-> {: .solution}
-{: .challenge}
-
-> ## Reading Error Messages
->
-> 1. Read the code below and try to identify what the errors are without running it.
-> 2. Run the code, and read the error message. What type of error is it?
->
-> ~~~
-> import datetime
-> datetime.date(2017,13,1)
-> ~~~
-> {: .python}
->
-> > ## Solution
-> >
-> > 1. The date object takes arguments in the order year, month, day, so 13 is 
-> >    an invalid value for month.
-> > 2. You get an error of type "ValueError", indicating that the object
-> >    received an inappropriate argument value. The additional message
-> >    "month must be in 1..12" makes it clearer what the problem is.
-> {: .solution}
-{: .challenge}
 
 [pypi]: https://pypi.org/
 [stdlib]: https://docs.python.org/3/library/

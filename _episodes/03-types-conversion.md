@@ -46,7 +46,7 @@ print(type(52))
 {: .output}
 
 ~~~
-title = "Georgia O'Keeffe"
+title = "Wildlife of Costa Rica"
 print(type(title))
 ~~~
 {: .python}
@@ -96,6 +96,7 @@ Henriette Avram
 ~~~
 {: .output}
 
+SKIP SKIP SKIP
 *   Multiplying a character string by an integer _N_ creates a new string that consists of that character string repeated  _N_ times.
     *   Since multiplication is repeated addition.
 * There are more ways that traditional math operators will work on other data types.  There isn't a perfect formula for figuring out what they do, so experimentation is valuable.
@@ -171,10 +172,15 @@ print(str(1) + '2')
 ~~~
 {: .output}
 
+This is useful for working with identifiers, other numbers that you want to work with.
+They may actually be better handled as strings than numbers. For example for using regular expressions
+on them. However, if you want to validate them, see if the check digit is right, that requires 
+using them as an integer. 
+
 ## Can mix integers and floats freely in operations.
 
 *   Integers and floating-point numbers can be mixed in arithmetic.
-    *   Python automatically converts integers to floats as needed.
+*   Python automatically converts integers to floats as needed.
 
 ~~~
 print('half is', 1 / 2.0)
@@ -190,25 +196,24 @@ three squared is 9.0
 ## Variables only change value when something is assigned to them.
 
 *   If we make one cell in a spreadsheet depend on another,
-    and update the latter,
-    the former updates automatically.
+    and update the latter, the former updates automatically.
 *   This does **not** happen in programming languages.
 
 ~~~
-first = 1
-second = 5 * first
-first = 2
-print('first is', first, 'and second is', second)
+year = 2019
+next = 2019 + 1
+year = 2000
+print('year is', first, 'and next is', next)
 ~~~
 {: .python}
 ~~~
-first is 2 and second is 5
+year is 2000 and second is 2020
 ~~~
 {: .output}
 
-*   The computer reads the value of `first` when doing the multiplication,
-    creates a new value, and assigns it to `second`.
-*   After that, `second` does not remember where it came from.
+*   The computer reads the value of `year` when doing the multiplication,
+    creates a new value, and assigns it to `next`.
+*   After that, `next` does not remember where it came from.
 
 > ## Fractions
 >
@@ -230,6 +235,7 @@ first is 2 and second is 5
 > {: .solution}
 {: .challenge}
 
+MAYBE USE THIS DEPENDING ON TIME
 > ## Choose a Type
 >
 > What type of value (integer, floating point number, or character string)
@@ -274,61 +280,6 @@ first is 2 and second is 5
 > {: .solution}
 {: .challenge}
 
-
-
-> ## Division Types
-> There are three different types of division:
-> 1. 'Normal' division (aka floating-point division) is what most people may be
-> familiar with: 5 / 2 = 2.5
-> 2. Floor division, which cuts out the part after the period: 5 / 2 = 2
-> 3. Modulo division, which only keeps the remained after division: 5 / 2 = 1
->
-> In Python 3,  the `/` operator performs floating-point division, the `//`
-> operator performs floor division, and the '%' (or *modulo*) operator
-> calculates the modulo division:
->
-> ~~~
-> print('5 // 3:', 5//3)
-> print('5 / 3:', 5/3)
-> print('5 % 3:', 5%3)
-> ~~~
-> {: .python}
->
-> ~~~
-> 5 // 3: 1
-> 5 / 3: 1.6666666666666667
-> 5 % 3: 2
-> ~~~
-> {: .output}
->
-> If `num_students` is the number of students enrolled in a course (let say 600),
-> and `num_per_class` is the number that can attend a single class (let say 42),
-> write an expression that calculates the number of classes needed
-> to teach everyone.
->
-> > ## Solution
-> > Depending on requirements it might be important to detect when the number of students per class doesn't divide the
-> > number of students evenly. Detect it with the `%` operator and test if the remainder that it returns is greater than
-> > 0.
-> >
-> >
-> > ~~~
-> > num_students = 600
-> > num_per_class = 42
-> > num_classes = num_students // num_per_class
-> > remainder = num_students % num_per_class
-> >
-> > print(num_students, 'students,', num_per_class, 'per class')
-> > print(num_classes, ' full classes, plus an extra class with only ', remainder, 'students')
-> > ~~~
-> > {: .python}
-> > ~~~
-> > 600 students, 42 per class
-> > 14  full classes, plus an extra class with only  12 students
-> > ~~~
-> > {: .output}
-> {: .solution}
-{: .challenge}
 
 > ## Strings to Numbers
 >
@@ -402,34 +353,4 @@ first is 2 and second is 5
 > {: .solution}
 {: .challenge}
 
-> ## Arithmetic with Different Types
->
-> Which of the following will print 2.0?
-> Note: there may be more than one right answer.
->
-> ~~~
-> first = 1.0
-> second = "1"
-> third = "1.1"
-> ~~~
-> {: .python}
->
-> 1. `first + float(second)`
-> 2. `float(second) + float(third)`
-> 3. `first + int(third)`
-> 4. `first + int(float(third))`
-> 5. `int(first) + int(float(third))`
-> 6. `2.0 * second`
->
-> > ## Solution
-> >
-> > Answer: 1 and 4.
-> >
-> > 1. is correct
-> > 2. gives 2.1
-> > 3. gives an error because we cannot convert text to int directly
-> > 4. is correct
-> > 5. gives 2 (as an integer not as a float)
-> > 6. gives an error because `second` is a string.
-> {: .solution}
-{: .challenge}
+

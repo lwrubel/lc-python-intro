@@ -111,102 +111,7 @@ for f in filesizes:
 
 *   Python steps through the branches of the conditional in order, testing each in turn.
 *   So ordering matters.
-
-~~~
-grade = 85
-if grade >= 70:
-    print('grade is C')
-elif grade >= 80:
-    print('grade is B')
-elif grade >= 90:
-    print('grade is A')
-~~~
-{: .python}
-~~~
-grade is C
-~~~
-{: .output}
-
-*   Does *not* automatically go back and re-evaluate if values change.
-
-~~~
-velocity = 10.0
-if velocity > 20.0:
-    print('moving too fast')
-else:
-    print('adjusting velocity')
-    velocity = 50.0
-~~~
-{: .python}
-~~~
-adjusting velocity
-~~~
-{: .output}
-
 *   Often use conditionals in a loop to "evolve" the values of variables.
-
-~~~
-velocity = 10.0
-for i in range(5): # execute the loop 5 times
-    print(i, ':', velocity)
-    if velocity > 20.0:
-        print('moving too fast')
-        velocity = velocity - 5.0
-    else:
-        print('moving too slow')
-        velocity = velocity + 10.0
-print('final velocity:', velocity)
-~~~
-{: .python}
-~~~
-0 : 10.0
-moving too slow
-1 : 20.0
-moving too slow
-2 : 30.0
-moving too fast
-3 : 25.0
-moving too fast
-4 : 20.0
-moving too slow
-final velocity: 30.0
-~~~
-{: .output}
-
-## Create a table showing variables' values to trace a program's execution.
-
-<table>
-  <tr>
-    <td><strong>i</strong></td>
-    <td>0</td>
-    <td>.</td>
-    <td>1</td>
-    <td>.</td>
-    <td>2</td>
-    <td>.</td>
-    <td>3</td>
-    <td>.</td>
-    <td>4</td>
-    <td>.</td>
-  </tr>
-  <tr>
-    <td><strong>velocity</strong></td>
-    <td>10.0</td>
-    <td>20.0</td>
-    <td>.</td>
-    <td>30.0</td>
-    <td>.</td>
-    <td>25.0</td>
-    <td>.</td>
-    <td>20.0</td>
-    <td>.</td>
-    <td>30.0</td>
-  </tr>
-</table>
-
-*   The program must have a `print` statement *outside* the body of the loop
-    to show the final value of `velocity`,
-    since its value is updated by the last iteration of the loop.
 
 > ## Compound Relations Using `and`, `or`, and Parentheses
 >
@@ -218,7 +123,6 @@ final velocity: 30.0
 > num_pages = [120,  50,  452,  98,  850]
 > height = [26, 28, 45, 15, 35]
 >
-> i = 0
 > for i in range(5):
 >     if num_pages[i] > 300 and height[i] > 30:
 >         print("Thick heavy book!")
@@ -251,7 +155,7 @@ final velocity: 30.0
 > so it is perfectly clear to a reader (and to Python) what you really mean.
 {: .callout}
 
-> ## Tracing Execution
+> ## Tracing Execution [SLIDE]
 >
 > What does this program print?
 >
@@ -272,126 +176,3 @@ final velocity: 30.0
 > >
 > {: .solution}
 {: .challenge}
-
-> ## Trimming Values
->
-> Fill in the blanks so that this program creates a new list
-> containing zeroes where the original list's values were negative
-> and ones where the original list's values were positive.
->
-> ~~~
-> original = [-1.5, 0.2, 0.4, 0.0, -1.3, 0.4]
-> result = ____
-> for value in original:
->     if ____:
->         result.append(0)
->     else:
->         ____
-> print(result)
-> ~~~
-> {: .python}
->
-> > ## Solution
-> > ~~~
-> > [0, 1, 1, 1, 0, 1]
-> > ~~~
-> > {: .output}
-> {: .solution}
-{: .challenge}
-
-
-> ## Initializing
->
-> Modify this program so that it finds the largest and smallest values in the list
-> no matter what the range of values originally is.
->
-> ~~~
-> values = [...some test data...]
-> smallest, largest = None, None
-> for v in values:
->     if ____:
->         smallest, largest = v, v
->     ____:
->         smallest = min(____, v)
->         largest = max(____, v)
-> print(smallest, largest)
-> ~~~
-> {: .python}
->
-> > ## Solution
-> > ~~~
-> > values = [3, 5, 10, 0, 43]
-> > smallest, largest = None, None
-> >
-> > for v in values:
-> >    if smallest is None and largest is None:
-> >         smallest, largest = v, v
-> >     else:
-> >         smallest = min(smallest, v)
-> >         largest = max(largest, v)
-> >     
-> > print(smallest, largest)
-> > ~~~
-> > {: .python}
-> >
-> > ~~~
-> > 0 43
-> > ~~~
-> > {: output}
-> > 
-> > What are the advantages and disadvantages of using this method
-> > to find the range of the data?
-> > 
-> {: /solution}
-{: .challenge}
-
-> ## Using Functions With Conditionals in Pandas
->
-> Functions will often contain conditionals.  Here is a short example that
-> will indicate which quartile the argument is in based on hand-coded values
-> for the quartile cut points.
->
-> ~~~
-> def calculate_life_quartile(exp):
->     if exp < 58.41:
->         # This observation is in the first quartile
->         return 1
->     elif exp >= 58.41 and exp < 67.05:
->         # This observation is in the second quartile
->        return 2
->     elif exp >= 67.05 and exp < 71.70:
->         # This observation is in the third quartile
->        return 3
->     elif exp >= 71.70:
->         # This observation is in the fourth quartile
->        return 4
->     else:
->         # This observation has bad data
->        return None
->
-> calculate_life_quartile(62.5)
-> ~~~
-> {: .python}
->
-> ~~~
-> 2
-> ~~~
-> {: .output}
->
-> That function would typically be used within a `for` loop, but Pandas has
-> a different, more efficient way of doing the same thing, and that is by
-> *applying* a function to a dataframe or a portion of a dataframe.  Here
-> is an example, using the definition above.
->
-> ~~~
-> data = pd.read_csv('Americas-data.csv')
-> data['life_qrtl'] = data['lifeExp'].apply(calculate_life_quartile)
-> ~~~
-> {: .python}
->
-> There is a lot in that second line, so let's take it piece by piece.
-> On the right side of the `=` we start with `data['lifeExp']`, which is the
-> column in the dataframe called `data` labeled `lifExp`.  We use the
-> `apply()` to do what it says, apply the `calculate_life_quartile` to the
-> value of this column for every row in the dataframe.
-{: .callout}

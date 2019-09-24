@@ -74,16 +74,16 @@ subjects is now: ['youth', 'history', 'social conditions']
 *   Use `list_name.append` to add items to the end of a list.
 
 ~~~
-primes = [2, 3, 5]
-print('primes is initially:', primes)
-primes.append(7)
-primes.append(11)
-print('primes has become:', primes)
+formats = ["image", "pdf", "web page"]
+print('formats is initially', formats)
+formats.append("archived web site")
+formats.append("drawing")
+print('formats has become:', formats)
 ~~~
 {: .python}
 ~~~
-primes is initially: [2, 3, 5]
-primes has become: [2, 3, 5, 7, 11]
+formats is initially ['image', 'pdf', 'web page']
+formats has become: ['image', 'pdf', 'web page', 'archived web site', 'drawing']
 ~~~
 {: .output}
 
@@ -96,19 +96,19 @@ primes has become: [2, 3, 5, 7, 11]
 *   `extend` is similar to `append`, but it allows you to combine two lists.  For example:  
 
 ~~~
-teen_primes = [13, 17, 19]
-middle_aged_primes = [37, 41, 43, 47, 53]
-print('primes is currently:', primes)
-primes.extend(teen_primes)
-print('primes has now become:', primes)
-primes.append(middle_aged_primes)
-print('primes has finally become:', primes)
+mime_types = ["image/gif", "image/jpg"]
+other_mime_types = ["image/tif", "image/jpeg"]
+print('mime_types is currently:', mime_types)
+mime_types.extend(other_mime_types)
+print('mime_types has now become:', mime_types)
+formats.append(mime_types)
+print('formats has finally become:', formats)
 ~~~
 {: .python}  
 ~~~
-primes is currently: [2, 3, 5, 7, 11]
-primes has now become: [2, 3, 5, 7, 13, 17, 19]
-primes has finally become: [2, 3, 5, 7, 11, 13, 17, 19, [37, 41, 43, 47, 53]]
+mime_types is currently: ['image/gif', 'image/jpg']
+mime_types has now become: ['image/gif', 'image/jpg', 'image/tif', 'image/jpeg']
+formats has finally become: ['image', 'pdf', 'web page', 'archived web site', 'drawing', ['image/gif', 'image/jpg', 'image/tif', 'image/jpeg']]
 ~~~
 {: .output}
 Note that while `extend` maintains the "flat" structure of the list, appending a list to a list makes the result two-dimensional.
@@ -119,15 +119,15 @@ Note that while `extend` maintains the "flat" structure of the list, appending a
 *   Not a function or a method, but a statement in the language.
 
 ~~~
-primes = [2, 3, 5, 7, 9]
-print('primes before removing last item:', primes)
-del primes[4]
-print('primes after removing last item:', primes)
+pages = [2, 3, 12, 17, 95]
+print('pages before removing last item:', pages)
+del pages[4]
+print('pages after removing last item:', pages)
 ~~~
 {: .python}
 ~~~
-primes before removing last item: [2, 3, 5, 7, 9]
-primes after removing last item: [2, 3, 5, 7]
+pages before removing last item: [2, 3, 12, 17, 95]
+pages after removing last item: [2, 3, 12, 17]
 ~~~
 {: .output}
 
@@ -143,7 +143,7 @@ primes after removing last item: [2, 3, 5, 7]
 *   A single list may contain numbers, strings, and anything else.
 
 ~~~
-tags = [88.5, 'WAMU', 'NPR', 2018]
+tags = [1865, "Tennessee, "railroads"]
 ~~~
 {: .python}
 
@@ -180,8 +180,6 @@ TypeError: 'str' object does not support item assignment
 ~~~
 {: .error}
 
-*   Lists and character strings are both *collections*.
-
 ## Indexing beyond the end of the collection is an error.
 
 *   Python reports an `IndexError` if we attempt to access a value that doesn't exist.
@@ -198,254 +196,69 @@ IndexError: string index out of range
 ~~~
 {: .output}
 
-> ## From Strings to Lists and Back
+> ## String methods
 >
-> Given this:
+You can use the method split() on a string to split it up on a separator character. Default is space. 
+
+~~~
+title = "Insurance maps of the city of New York"
+title_words = title.split()
+print(title_words)
+~~~
+{: .python}
+~~~
+['Insurance', 'maps', 'of', 'the', 'city', 'of', 'New', 'York']
+~~~
+{: .output}
+
+Split can take a string to specify another character to split on.
+~~~
+year_info = "2019/2020"
+years_list = year_info.split("/")
+print(years_list)
+~~~
+{: .python}
+~~~
+['2019', '2020']
+~~~
+{: .output}
+
+How would get just the first year in that list and assign it to a new variable?
+~~~
+start_year = years_list[0]
+print(start_year)
+~~~
+{: .python}
+~~~
+2019
+~~~
+{: .output}
+
+> ### Exercise: Split on something else
+
+Given the subject heading below, split apart the subdivisions and assign the results
+to a list called "subheadings". 
+~~~
+subject = "Railroads--United States--Maps"
+~~~
+{: .python}
+~~~
+subheadings = subject.split("--")
+form = subheadings[-1]
+~~~
+{: .output}
+
+
+> ## Bonus to join them together again
+>
 >
 > ~~~
-> print('string to list:', list('tin'))
-> print('list to string:', ''.join(['g', 'o', 'l', 'd']))
+> new_subject = '--'.join(subheadings)
 > ~~~
 > {: .python}
 > 
 > ~~~
-> ['t', 'i', 'n']
-> 'gold'
+> Railroads--United States--Maps
 > ~~~
 > {: .output}
 > 
-> 1.  Explain in simple terms what `list('some string')` does.
-> 2.  What does `'-'.join(['x', 'y'])` generate?  
-> 
-> > ## Solution
-> >  1.  It creates a list of the `some string`s characters as elements. 
-> >  2.  It creates a string composed of `x` and `y`, separated by a hyphen character(`-`).  
-> {: .solution}
-{: .challenge}
-
-
-> ## Fill in the Blanks
->
-> Fill in the blanks so that the program below produces the output shown.
->
-> ~~~
-> values = ____
-> values.____(1)
-> values.____(3)
-> values.____(5)
-> print('first time:', values)
-> values = values[____]
-> print('second time:', values)
-> ~~~
-> {: .python}
->
-> ~~~
-> first time: [1, 3, 5]
-> second time: [3, 5]
-> ~~~
-> {: .output}
-> > ## Solution
-> > ~~~
-> > values = []
-> > values.append(1)
-> > values.append(3)
-> > values.append(5)
-> > print('first time:', values)
-> > values = values[1:3]
-> > print('second time:', values)
-> > ~~~
-> > {: .python}
-> > ~~~
-> > first time [1, 3, 5]
-> > second time [3, 5]
-> > ~~~
-> > {: .output}
-> {: .solution}
-{: .challenge}
-
-> ## How Large is a Slice?
->
-> If 'low' and 'high' are both non-negative integers,
-> how long is the list `values[low:high]`?
-> > ## Solution
-> > The list's length would be equal to `high - low`.  
-> {: .solution}
-{: .challenge}
-
-> ## From Strings to Lists and Back
->
-> Given this:
->
-> ~~~
-> print('string to list:', list('tin'))
-> print('list to string:', ''.join(['g', 'o', 'l', 'd']))
-> ~~~
-> {: .python}
-> 
-> ~~~
-> ['t', 'i', 'n']
-> 'gold'
-> ~~~
-> {: .output}
-> 
-> 1.  Explain in simple terms what `list('some string')` does.
-> 2.  What does `'-'.join(['x', 'y'])` generate?  
-> 
-> > ## Solution
-> >  1.  It creates a list of the `some string`s characters as elements. 
-> >  2.  It creates a string composed of `x` and `y`, separated by a hyphen character(`-`).  
-> {: .solution}
-{: .challenge}
-
-> ## Working With the End
->
-> What does the following program print?
->
-> ~~~
-> element = 'helium'
-> print(element[-1])
-> ~~~
-> {: .python}
->
-> 1.  How does Python interpret a negative index?
-> 2.  If a list or string has N elements,
->     what is the most negative index that can safely be used with it,
->     and what location does that index represent?
-> 3.  If `values` is a list, what does `del values[-1]` do?
-> 4.  How can you display all elements but the last one without changing `values`?
->     (Hint: you will need to combine slicing and negative indexing.)  
-> 
-> > ## Solution
-> > ~~~
-> > m
-> > ~~~
-> > {: .output}
-> > 1.  A negative index begins at the final element. 
-> > 2.  `-(N - 1)` corresponds to the first index, which is the [0] index. 
-> > 3.  It removes the final element of the list. 
-> > 4.  You could do the following: `print(values[0:-1])`
-> {: .solution}
-{: .challenge}
-
-
-> ## Stepping Through a List
->
-> What does the following program print?
->
-> ~~~
-> element = 'fluorine'
-> print(element[::2])
-> print(element[::-1])
-> ~~~
-> {: .python}
->
-> 1.  If we write a slice as `low:high:stride`, what does `stride` do?
-> 2.  What expression would select all of the even-numbered items from a collection?  
-> 
-> > ## Solution
-> > ~~~
-> > furn
-> > eniroulf
-> > ~~~
-> > {: .output}
-> > 1.  `stride` indicates both the number of steps, and from which end: positive starts from first element, negative from the last element. 
-> > 2.  `element[1::2]`
-> {: .solution}
-{: .challenge}
-
-> ## Slice Bounds
->
-> What does the following program print?
->
-> ~~~
-> element = 'lithium'
-> print(element[0:20])
-> print(element[-1:3])
-> ~~~
-> {: .python}
-> > ## Solution
-> > 
-> > ~~~
-> > lithium 
-> > m        
-> > ~~~
-> > {: .output}
-> > There is no 20th index, so the entire string is captured.  
-> > There is no element after the -1 index.  
-> {: .solution}
-{: .challenge}
-
-> ## Sort and Sorted
->
-> What do these two programs print?
-> In simple terms, explain the difference between `sorted(letters)` and `letters.sort()`.
->
-> ~~~
-> # Program A
-> letters = list('gold')
-> result = sorted(letters)
-> print('letters is', letters, 'and result is', result)
-> ~~~
-> {: .python}
->
-> ~~~
-> # Program B
-> letters = list('gold')
-> result = letters.sort()
-> print('letters is', letters, 'and result is', result)
-> ~~~
-> {: .python}
->
-> > ## Solution
-> > Program A:
-> > ~~~
-> > letters is ['g', 'o', 'l', 'd'] and result is ['d', 'g', 'l', 'o']
-> > ~~~
-> > {: .output}
-> > Program B:
-> > ~~~
-> > letters is ['d', 'g', 'l', 'o'] and result is None
-> > ~~~
-> > {: .output}
-> > `sorted(letters)` returns a sorted copy of the list, while `letters.sort()` sorted the list _in place_. Thus, it was already sorted, and calling a further sort returns `None`.  
-> {: .solution}
-{: .challenge}
-
-> ## Copying (or Not)
->
-> What do these two programs print?
-> In simple terms, explain the difference between `new = old` and `new = old[:]`.
->
-> ~~~
-> # Program A
-> old = list('gold')
-> new = old      # simple assignment
-> new[0] = 'D'
-> print('new is', new, 'and old is', old)
-> ~~~
-> {: .python}
->
-> ~~~
-> # Program B
-> old = list('gold')
-> new = old[:]   # assigning a slice
-> new[0] = 'D'
-> print('new is', new, 'and old is', old)
-> ~~~
-> {: .python}
->
-> > ## Solution
-> > Program A:
-> > ~~~
-> > new is ['D', 'o', 'l', 'd'] and old is ['D', 'o', 'l', 'd']
-> > ~~~
-> > {: .output}
-> > Program B:
-> > ~~~
-> > new is ['D', 'o', 'l', 'd'] and old is ['g', 'o', 'l', 'd']
-> > ~~~
-> > {: .output}
-> > 
-> > `new = old` is assigning `old` to `new`, whereas `new = old[:]` is a **slice assignment**, which will only return a copy of `old`.
-> {: .solution}
-{: .challenge}

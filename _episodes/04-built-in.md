@@ -46,15 +46,11 @@ name = 'Library Carpentry'   # Neither is this comment - anything after '#' is i
     *   `print()` prints a blank line.
 
 ~~~
-print('before')
 print()
-print('after')
 ~~~
 {: .python}
 ~~~
-before
 
-after
 ~~~
 {: .output}
 
@@ -151,7 +147,7 @@ round(...)
 
 ~~~
 # Forgot to close the quotation marks around the string.
-name = 'Feng
+name = 'Adama
 ~~~
 {: .python}
 ~~~
@@ -159,18 +155,7 @@ SyntaxError: EOL while scanning string literal
 ~~~
 {: .error}
 
-~~~
-# An extra '=' in the assignment.
-age = = 52
-~~~
-{: .python}
-~~~
-SyntaxError: invalid syntax
-~~~
-{: .error}
-
 *   Look more closely at the error message:
-
 ~~~
 print("hello world"
 ~~~
@@ -193,18 +178,6 @@ SyntaxError: unexpected EOF while parsing
 
 ## Python reports a runtime error when something goes wrong while a program is executing.
 
-~~~
-age = 53
-remaining = 100 - aege # mis-spelled 'age'
-~~~
-{: .python}
-~~~
-NameError: name 'aege' is not defined
-~~~
-{: .error}
-
-*   Fix syntax errors by reading the source and runtime errors by tracing execution.
-
 ## Every function returns something.
 
 *   Every function call produces some result.
@@ -222,27 +195,6 @@ result of print is None
 ~~~
 {: .output}
 
-> ## What Happens When
->
-> 1. Explain in simple terms the order of operations in the following program:
->    when does the addition happen, when does the subtraction happen,
->    when is each function called, etc.
-> 2. What is the final value of `word`?
->
-> ~~~
-> word = 'blah '
-> word = max(min(word * 2 + 'blur ', 'aaah '), 'ping')
-> print(word)
-> ~~~
-> {: .python}
->
-> > ## Solution
-> >
-> > ~~~
-> > ping
-> > ~~~
->{: .solution}
-{: .challenge}
 
 > ## Spot the Difference
 >
@@ -251,23 +203,21 @@ result of print is None
 >    If it runs, does its result make any sense?
 >
 > ~~~
-> rich = "gold"
-> poor = "tin"
-> print(max(rich, poor))
-> print(max(len(rich), len(poor)))
+> start = "2018"
+> end = "2020"
+> print(max(len(start), end))
 > ~~~
 > {: .python}
 >
 > > ## Solution
 > >
 > > ~~~
-> > tin
-> > 4
 > > TypeError: '>' not supported between instances of 'str' and 'int'
 > > ~~~
 >{: .solution}
 {: .challenge}
 
+SKIP LIKELY
 > ## Why Not?
 >
 > Why don't `max` and `min` return `None` when they are given no arguments?
@@ -283,17 +233,4 @@ result of print is None
 > > ~~~
 > > {: .error}
 >{: .solution}
-{: .challenge}
-
-> ## Last Character of a String
->
-> If Python starts counting from zero,
-> and `len` returns the number of characters in a string,
-> what index expression will get the last character in the string `name`?
-> (Note: we will see a simpler way to do this in a later episode.)
->
-> > ## Solution
-> >
-> > `name[len(name) - 1]`
-> {: .solution}
 {: .challenge}
