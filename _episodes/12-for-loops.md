@@ -58,7 +58,7 @@ print(5)
     *   Any consistent indentation is legal, but almost everyone uses four spaces.
 
 ~~~
-for place in ['Asia', 'Vietnam', 'Saigon']:
+for building in ['Jefferson', 'Madison', 'Adams']:
 print(place)
 ~~~
 {: .python}
@@ -70,13 +70,13 @@ IndentationError: expected an indented block
 *   Indentation is always meaningful in Python.
 
 ~~~
-first_name="Jon"
-  last_name="Smith"
+first_name = "Thomas"
+  last_name = "Jefferson"
 ~~~
 {: .python}
 ~~~
   File "<ipython-input-7-f65f2962bf9c>", line 2
-    last_name="Smith"
+    last_name="Jefferson"
     ^
 IndentationError: unexpected indent
 ~~~
@@ -88,14 +88,14 @@ IndentationError: unexpected indent
 ## A `for` loop is made up of a collection, a loop variable, and a body.
 
 ~~~
-for place in ['Asia', 'Vietnam', 'Saigon']:
-    print(place)
+for building in ['Jefferson', 'Madison', 'Adams']:
+    print(building)
 ~~~
 {: .python}
 
-*   The collection, `['Asia', 'Vietnam', 'Saigon']`, is what the loop is being run on.
-*   The body, `print(place)`, specifies what to do for each value in the collection.
-*   The loop variable, `place`, is what changes for each *iteration* of the loop.
+*   The collection, `['Jefferson', 'Madison', 'Adams']`, is what the loop is being run on.
+*   The body, `print(building)`, specifies what to do for each value in the collection.
+*   The loop variable, `building`, is what changes for each *iteration* of the loop.
     *   The "current thing".
 
 ## Loop variable names follow the normal variable name conventions.
@@ -107,17 +107,21 @@ for place in ['Asia', 'Vietnam', 'Saigon']:
     *   Often be used in the course of the loop
         * So give them a meaningful name you'll understand as the body code in your loop grows.
         * Example: `for single_letter in ['A', 'B', 'C', 'D']:` instead of `for blah in ['A', 'B', 'C', 'D']:`
+
+For example, you wouldn't want to do:
 ~~~
 for kitten in [2, 3, 5]:
     print(kitten)
 ~~~
 {: .python}
 
+## Show loop using pens exercise and include something that's not a pen. 
+* Stops automatically when you've run out of things, don't need to keep track of the size of the collection. 
+* Doesn't matter what the loop variable is called.
+* It gets replaced each time with the next thing. 
+
 ## The body of a loop can contain many statements.
-
-*   But no loop should be more than a few lines long.
-*   Hard for human beings to keep larger chunks of code in mind.
-
+Math example: 
 ~~~
 primes = [2, 3, 5]
 for p in primes:
@@ -179,155 +183,32 @@ Again!
     1.  Initialize an *accumulator* variable to zero, the empty string, or the empty list.
     2.  Update the variable with values from a collection.
 
+Say we have the following list:
+sizes = ['xs','s','m','l','xl']
+
+Use the string method .upper() 
+Write a for statement to:
+* Create a new list with all the sizes in uppercase.
+* Remember! You can’t append to a list that doesn’t exist.
+
 ~~~
-# Sum the first 10 integers.
-total = 0
-for number in range(10):
-   total = total + (number + 1)
-print(total)
+sizes = ['xs','s','m','l','xl']
+upper_sizes = []
+
+for s in sizes:
+    new_size = s.upper()
+    upper_sizes.append(new_size)
+
+print(upper_sizes)
 ~~~
 {: .python}
 ~~~
-55
+['XS', 'S', 'M', 'L', 'XL']
 ~~~
 {: .output}
 
-*   Read `total = total + (number + 1)` as:
-    *   Add 1 to the current value of the loop variable `number`.
-    *   Add that to the current value of the accumulator variable `total`.
-    *   Assign that to `total`, replacing the current value.
-*   We have to add `number + 1` because `range` produces 0..9, not 1..10.
-
+> ## For loops become more powerful when we can start to do more to test the data.
 
 > ## Practice Accumulating
 >
-> Fill in the blanks in each of the programs below
-> to produce the indicated result.
->
-> ~~~
-> # Total length of the strings in the list: ["red", "green", "blue"] => 12
-> total = 0
-> for word in ["red", "green", "blue"]:
->     ____ = ____ + len(word)
-> print(total)
-> ~~~
-> {: .python}
->
-> ~~~
-> # List of word lengths: ["red", "green", "blue"] => [3, 5, 4]
-> lengths = ____
-> for word in ["red", "green", "blue"]:
->     lengths.____(____)
-> print(lengths)
-> ~~~
-> {: .python}
->
-> ~~~
-> # Concatenate all words: ["red", "green", "blue"] => "redgreenblue"
-> words = ["red", "green", "blue"]
-> result = ____
-> for ____ in ____:
->     ____
-> print(result)
-> ~~~~
-> {: .python}
->
-> ~~~
-> # Create acronym: ["red", "green", "blue"] => "RGB"
-> # write the whole thing
-> ~~~
-> {: .python}
-{: .challenge}
 
-
-> ## Tracing Execution
->
-> Create a table showing the numbers of the lines that are executed when this program runs,
-> and the values of the variables after each line is executed.
->
-> ~~~
-> total = 0
-> for char in "loc":
->     total = total + 1
-> ~~~
-> {: .python}
-{: .challenge}
-
-> ## Reversing a String
->
-> Fill in the blanks in the program below so that it prints "col"
-> (the reverse of the original character string "loc").
->
-> ~~~
-> original = "loc"
-> result = ____
-> for char in original:
->     result = ____
-> print(result)
-> ~~~
-> {: .python}
-{: .challenge}
-
-
-> ## Identifying Variable Name Errors
->
-> 1. Read the code below and try to identify what the errors are
->    *without* running it.
-> 2. Run the code and read the error message.
->    What type of `NameError` do you think this is?
->    Is it a string with no quotes, a misspelled variable, or a 
->    variable that should have been defined but was not?
-> 3. Fix the error.
-> 4. Repeat steps 2 and 3, until you have fixed all the errors.
->
-> ~~~
-> for number in range(10):
->     # use a if the number is a multiple of 3, otherwise use b
->     if (Number % 3) == 0:
->         message = message + a
->     else:
->         message = message + "b"
-> print(message)
-> ~~~
-> {: .python}
->
-> > ## Solution
-> > ~~~
-> > message = ""
-> > for number in range(10):
-> > # use a if the number is a multiple of 3, otherwise use b
-> >     if (number % 3) == 0:
-> >         message = message + "a"
-> >     else:
-> >         message = message + "b"
-> > print(message)
-> > ~~~
-> > {: .output}
-> {: .solution}
-{: .challenge}
-
-> ## Classifying Errors
->
-> Is an indentation error a syntax error or a runtime error?
->
-> > ## Solution
-> >
-> > It is a syntax error. The problem has to do with the placement of the code, not its logic.
-> >
-> {: .solution}
-{: .challenge}
-
-
-> ## Identifying Item Errors
->
-> 1. Read the code below and try to identify what the errors are
->    *without* running it.
-> 2. Run the code, and read the error message. What type of error is it?
-> 3. Fix the error.
->
-> ~~~
-> seasons = ['Spring', 'Summer', 'Fall', 'Winter']
-> print('My favorite season is ', seasons[4])
-> ~~~
-> {: .python}
-{: .challenge}

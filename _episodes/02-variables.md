@@ -27,9 +27,10 @@ keypoints:
 *   Here, Python assigns an age to a variable `age`
     and a name in quotation marks to a variable `building`.
 
+(Adams was ready for occupancy December 2, 1938. So we'll say it's 81. )
 ~~~
-building = 'Jefferson'
-age = 121
+building = 'Adams'
+age = 81
 ~~~
 {: .python}
 
@@ -37,8 +38,6 @@ age = 121
     *   cannot start with a digit
     *   cannot contain spaces, quotation marks, or other punctuation
     *   *may* contain an underscore (typically used to separate words in long variable names)
-*   Underscores at the start like `__alistairs_real_age` have a special meaning
-    so we won't do that until we understand the convention.
 
 ## Use `print` to display values.
 
@@ -53,7 +52,7 @@ print(building, 'is', age, 'years old')
 ~~~
 {: .python}
 ~~~
-Jefferson is 121 years old
+Adams is 81 years old
 ~~~
 {: .output}
 
@@ -81,7 +80,6 @@ NameError: name 'num_floors' is not defined
 {: .error}
 
 *   The last line of an error message is usually the most informative.
-*   We will look at error messages in detail [later]({{ page.root }}/05-error-messages/).
 
 > ## Variables Persist Between Cells
 > Variables defined in one cell exist in all other cells once executed,
@@ -103,7 +101,7 @@ print('Age in three years:', age)
 ~~~
 {: .python}
 ~~~
-Age in three years: 124
+Age in three years: 84
 ~~~
 {: .output}
 
@@ -118,13 +116,14 @@ Age in three years: 124
 *   Use the position's index in square brackets to get the character at that
     position.
 
+(My example is for Field guide to the wildlife of Costa Rica)
 ~~~
-call_num = 'N6537.039 A3 1990'
+call_num = 'QL228.C8 H46 2002'
 print(call_num[0])
 ~~~
 {: .python}
 ~~~
-N
+Q
 ~~~
 {: .output}
 
@@ -132,14 +131,10 @@ N
 
 *   A part of a string is called a substring. A substring can be as short as a
     single character.
-*   An item in a list is called an element. Whenever we treat a string as if it
-    were a list, the string's elements are its individual characters.
-*   A slice is a part of a string (or, more generally, any list-like thing).
+*   A slice is a part of a string (we'll learn about slices of other objects soon).
 *   We take a slice by using `[start:stop]`, where `start` is replaced with the
     index of the first element we want and `stop` is replaced with the index of
     the element just after the last element we want.
-*   Mathematically, you might say that a slice selects `[start:stop]`.
-*   The difference between stop and start is the slice's length.
 *   Taking a slice does not change the contents of the original string. Instead,
     the slice is a copy of part of the original string.
 
@@ -148,14 +143,14 @@ print(call_num[0:4])
 ~~~
 {: .python}
 ~~~
-N6537
+QL228
 ~~~
 {: .output}
 
 ## Use the built-in function `len` to find the length of a string.
 
 ~~~
-print(len('Georgia'))
+print(len('Laura'))
 ~~~
 {: .python}
 ~~~
@@ -171,71 +166,29 @@ print(len('Georgia'))
 *   Python thinks that upper- and lower-case letters are different,
     so `Name` and `name` are different variables.
 *   There are conventions for using upper-case letters at the start of variable names
-    so we will use lower-case letters for now.
-
-## Use meaningful variable names.
-
-*   Python doesn't care what you call variables as long as they obey the rules
-    (alphanumeric characters and the underscore).
-
-~~~
-flabadab = 38
-asdf_90 = 'Madison'
-print(asdf_90, 'is', flabadab, 'years old')
-~~~
-{: .python}
-
+    so we will use lower-case letters for now
 *   Use meaningful variable names to help other people understand what the program does.
 *   The most important "other person" is your future self.
-
-> ## Predicting Values
->
-> What is the final value of `position` in the program below?
-> (Try to predict the value without running the program,
-> then check your prediction.)
->
-> ~~~
-> initial = "left"
-> position = initial
-> initial = "right"
-> ~~~
-> {: .python}
-> > ## Solution
-> >
-> > ~~~
-> > initial = "left"  # Initial is assigned the string "left"
-> > position = initial  # Position is assigned the variable initial, currently "left"
-> > initial = "right"  # Initial is assigned the string "right"
-> > print(position)
-> > ~~~
-> > {: .python}
-> > ~~~
-> > left
-> > ~~~
-> > {: .output}
-> > The last assignment to position was "left"
->{: .solution}
-{: .challenge}
 
 > ## Slicing
 >
 > What does the following program print?
 >
 > ~~~
-> library_name = 'Library of Congress'
-> print('library_name[1:3] is:', library_name[1:3])
+> lib_name = 'Library of Congress'
+> print('lib_name[1:3] is:', lib_name[1:3])
 > ~~~
 > {: .python}
 >
-> 1.  What does `thing[low:high]` do?
-> 2.  What does `thing[low:]` (without a value after the colon) do?
-> 3.  What does `thing[:high]` (without a value before the colon) do?
-> 4.  What does `thing[:]` (just a colon) do?
-> 5.  What does `thing[number:negative-number]` do?
+> 1.  What does `lib_name[low:high]` do?
+> 2.  What does `lib_name[low:]` (without a value after the colon) do?
+> 3.  What does `lib_name[:high]` (without a value before the colon) do?
+> 4.  What does `lib_name[:]` (just a colon) do?
+> 5.  What does `lib_name[number:negative-number]` do?
 >
 > > ## Solution
 > > ~~~
-> > library_name[1:3] is: oc
+> > library_name[1:3] is: ib
 > > ~~~
 > > {: .output}
 > > 1.  It will slice the string, starting at the `low` index and ending an element before the `high` index
@@ -245,74 +198,4 @@ print(asdf_90, 'is', flabadab, 'years old')
 > > 5.  It will slice the string, starting the `number` index, and ending a distance of the absolute value of `negative-number` elements from the end of the string
 > {: .solution}
 {: .challenge}
-
-
-
-> ## Swapping Values
->
-> Draw a table showing the values of the variables in this program
-> after each statement is executed.
-> In simple terms, what do the last three lines of this program do?
->
-> ~~~
-> x = 1.0
-> y = 3.0
-> swap = x
-> x = y
-> y = swap
-> ~~~
-> {: .python}
-> > ## Solution
-> >
-> > ~~~
-> > swap = x  #  x->1.0 y->3.0 swap->1.0
-> > x = y     #  x->3.0 y->3.0 swap->1.0
-> > y = swap  #  x->3.0 y->1.0 swap->1.0
-> > ~~~
-> > These three lines exchange the values in `x` and `y` using the `swap`
-> > variable for temporary storage. This is a fairly common programming idiom.
->{: .solution}
-{: .challenge}
-
-
-
-> ## Can you slice integers?
->
-> If you assign `a = 123`,
-> what happens if you try to get the second digit of `a`?
->
-> > ## Solution
-> > Numbers are not stored in the written representation,
-> > so they can't be treated like strings.
-> >
-> > ~~~
-> > a = 123
-> > print(a[1])
-> > ~~~
-> > {: .python}
-> > ~~~
-> > TypeError: 'int' object is not subscriptable
-> > ~~~
-> > {: .error}
-> {: .solution}
-{: .challenge}
-
-> ## Choosing a Name
->
-> Which is a better variable name, `m`, `min`, or `minutes`?
-> Why?
-> Hint: think about which code you would rather inherit
-> from someone who is leaving the lab:
->
-> 1. `ts = m * 60 + s`
-> 2. `tot_sec = min * 60 + sec`
-> 3. `total_seconds = minutes * 60 + seconds`
->
-> > ## Solution
-> >
-> > `minutes` is better because `min` might mean something like "minimum"
-> > (and actually does in Python, but we haven't seen that yet).
-> {: .solution}
-{: .challenge}
-
 
