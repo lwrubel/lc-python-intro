@@ -96,7 +96,6 @@ Henriette Avram
 ~~~
 {: .output}
 
-SKIP SKIP SKIP
 *   Multiplying a character string by an integer _N_ creates a new string that consists of that character string repeated  _N_ times.
     *   Since multiplication is repeated addition.
 * There are more ways that traditional math operators will work on other data types.  There isn't a perfect formula for figuring out what they do, so experimentation is valuable.
@@ -235,7 +234,6 @@ year is 2000 and second is 2020
 > {: .solution}
 {: .challenge}
 
-MAYBE USE THIS DEPENDING ON TIME
 > ## Choose a Type
 >
 > What type of value (integer, floating point number, or character string)
